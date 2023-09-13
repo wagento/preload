@@ -8,6 +8,7 @@ Download zip file of this module and extract to this directory `app/code/Wage`
 Enable module with
 ```
 php bin/magento module:enable Wage_Preload
+php bin/magento cache:flush
 ```
 
 you can configure preload assets like below
