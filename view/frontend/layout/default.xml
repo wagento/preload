@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="require.js">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Wage_Preload::page/js/require_js.phtml</argument>
+            </action>
+            <block class="Wage\Preload\Block\Head\PreloadCss" name="head.csspreload" ifconfig="wage_preload/general/enable_preload_assets" before="-" />
+            <block class="Wage\Preload\Block\Head\PreloadScript" name="head.scriptpreload" ifconfig="wage_preload/general/enable_preload_assets" before="-" />
+            <block class="Wage\Preload\Block\Head\PreloadFont" name="head.fontpreload" ifconfig="wage_preload/general/enable_preload_assets" before="-" />
+            <block class="Wage\Preload\Block\Head\PreConnect" name="head.preconnect" ifconfig="wage_preload/general/enable_preload_assets" before="-" />
+        </referenceBlock>
+    </body>
+</page>

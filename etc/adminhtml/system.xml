@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wage" translate="label" sortOrder="5000" class="bc">
+            <label>Wagento</label>
+        </tab>
+        <section id="wage_preload" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Wage_Preload::menu</resource>
+            <class>separator-top</class>
+            <label>Preload Assets</label>
+            <tab>wage</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enable_preload_assets" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Preload Critical Assets</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="css_to_preload" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CSS files to Preload</label>
+                    <frontend_model>Wage\Preload\Block\Adminhtml\Config\Field\PreloadCss</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[CSS URLs that you want to preload on page load.]]></comment>
+                    <depends>
+                        <field id="enable_preload_assets">1</field>
+                    </depends>
+                </field>
+                <field id="scripts_to_preload" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Scripts to Preload</label>
+                    <frontend_model>Wage\Preload\Block\Adminhtml\Config\Field\PreloadScript</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Script URLs that you want to preload on page load.]]></comment>
+                    <depends>
+                        <field id="enable_preload_assets">1</field>
+                    </depends>
+                </field>
+                <field id="fonts_to_preload" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fonts to Preload</label>
+                    <frontend_model>Wage\Preload\Block\Adminhtml\Config\Field\PreloadFonts</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[Font URLs that you want to preload on page load.]]></comment>
+                    <depends>
+                        <field id="enable_preload_assets">1</field>
+                    </depends>
+                </field>
+                <field id="urls_to_preconnect" translate="label comment" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Urls to PreConnect</label>
+                    <frontend_model>Wage\Preload\Block\Adminhtml\Config\Field\PreloadScript</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment><![CDATA[3rd Party URLs that you want to preconnect on page load.]]></comment>
+                    <depends>
+                        <field id="enable_preload_assets">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
